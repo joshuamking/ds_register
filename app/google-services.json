@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1038917248918",
+    "firebase_url": "https://datastructures-register.firebaseio.com",
+    "project_id": "datastructures-register",
+    "storage_bucket": "datastructures-register.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038917248918:android:74953f323a8448c4",
+        "android_client_info": {
+          "package_name": "edu.gsu.ds_register"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038917248918-ciidfcsgjpqboul4tomtqb60gf69ir0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfL9pL9n9ZeVzgD-a4NgFV689IsVkKEB4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
