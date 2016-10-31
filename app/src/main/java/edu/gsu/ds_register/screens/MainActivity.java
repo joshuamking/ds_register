@@ -1,8 +1,9 @@
-package edu.gsu.ds_register;
+package edu.gsu.ds_register.screens;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import edu.gsu.ds_register.R;
 import edu.gsu.ds_register.listener.SimpleValueEventListener;
 import edu.gsu.ds_register.utils.FirebaseUtils;
 
