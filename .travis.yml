@@ -36,12 +36,12 @@ notifications:
 #    rooms:
 #      - gsu-ds-fall16:eS7JTwuVaMwXIjO2D86qQXSx#general
 #    on_success: change
-
+before_deploy: 'pwd;ls -A;ls ./app/;ls ./app/build/;ls ./app/build/outputs/;ls ./app/build/outputs/apk/'
 deploy:
   provider: releases
   api_key:
     secure: F5VdBNcRv4tW/DQVPrGrw8p/lttq2xcvPVeYO1CbuGHNSdsyK53m7KxP84sXCxiXJ4Xka05HTya9zoNyA5bwRVg+QofywxeY/851DSAobbEvJe3tmlcmz9svTDLOs5//qm+K05xa3aAhSFSot3LCsr+m3CW7Z3VDGMQDzg4AzDbcLQn8g3rww+zHyEQsy6HceQ61P6bNjbaAufpDBIeohxHt6zHQcVsqQr7f6yyRL5JsafZx2ZoPxS5lbfnBaAfTlo5iFbKv6nzq1Dynieft7ShBZMpTiUmIB61QKpnXCPTBoXTg8BIDgv6iX8nShxjvh1pVhYtW+fX58kdpYXGm6Hu1axvgu277k2xM1/f8k4GeMOB/SLCvM6eYcy/m5GGo0wiM+e0D404y0hSFFSA7RtYtpJJvmjWncog4Ol6ZvWts3fTUEQTQRB2zGd8TifPP5prmL1sbhcIvm7cc6FBMWevdDZ4Xr6GHlGXoE8i9EPvWjXgWhPsPpCBvhsvvQ+GZi9J2Dcct4ZPdXfFjBc6xYbt5OXHV4VQmRVqIwzj7hrFhDzaKIQiDaHCG9lhbFLm8Mx7KzbvzIVAUa6m/2ItZDifEWpoLHWfdSFmBIVVOi2QEzR+NOwwl/ikra5I3U/2LwFsZNNdevwgXRCwVsWdwlACSl+fopLxQMskIaB8TqP8=
-  file: app/build/outputs/apk/app-*.apk
+  file: app/build/outputs/apk/app-release.apk
   skip_cleanup: true
   overwrite: true
   on:
