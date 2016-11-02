@@ -27,4 +27,4 @@ before_script:
     - export PATH=$GRADLE_HOME/bin:$PATH
 licenses:
   - android-sdk-preview-license-52d11cd2
-  - android-sdk-license-.+
+  - android-sdk-license
