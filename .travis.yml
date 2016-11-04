@@ -46,3 +46,4 @@ deploy:
   overwrite: true
   on:
     repo: joshuamking/ds_register
+#    tags: true
