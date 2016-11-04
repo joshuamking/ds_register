@@ -35,7 +35,6 @@ notifications:
   slack:
     rooms:
       - gsu-ds-fall16:eS7JTwuVaMwXIjO2D86qQXSx#build-status
-    on_success: change
 #before_deploy: 'pwd;ls -A;ls ./app/;ls ./app/build/;ls ./app/build/outputs/;ls ./app/build/outputs/apk/'
 deploy:
   provider: releases
