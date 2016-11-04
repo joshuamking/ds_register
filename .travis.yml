@@ -31,11 +31,11 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
 notifications:
-  slack: gsu-ds-fall16:eS7JTwuVaMwXIjO2D86qQXSx
-#  slack:
-#    rooms:
-#      - gsu-ds-fall16:eS7JTwuVaMwXIjO2D86qQXSx#general
-#    on_success: change
+#  slack: gsu-ds-fall16:eS7JTwuVaMwXIjO2D86qQXSx
+  slack:
+    rooms:
+      - gsu-ds-fall16:eS7JTwuVaMwXIjO2D86qQXSx#general
+    on_success: change
 #before_deploy: 'pwd;ls -A;ls ./app/;ls ./app/build/;ls ./app/build/outputs/;ls ./app/build/outputs/apk/'
 deploy:
   provider: releases
