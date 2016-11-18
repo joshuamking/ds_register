@@ -5,11 +5,12 @@ import com.google.firebase.database.Exclude;
 /**
  * Created by Joshua King on 10/31/16.
  */
-public class FirebaseModel {
+public abstract class FirebaseModel {
 	private String firebaseKey;
 
-	@Exclude
-	public String getFirebaseKey () {
+	public abstract void saveToFirebase ();
+
+	@Exclude public String getFirebaseKey () {
 		return firebaseKey;
 	}
 
