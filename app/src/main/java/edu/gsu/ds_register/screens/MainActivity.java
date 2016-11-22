@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 		final PersonModel personModel = new PersonModel("Homeless", "Guy", "noemailduh@me.com", "why...?", "9876543210", System.currentTimeMillis());
 		personModel.saveToFirebase();
 
+
+
 		// TODO: 11/18/16 : THIS CALL WON"T WORK YET... I WILL FIX SOON.
 		//		FirebaseUtils.addValueListener("persons", new SimpleValueEventListener<ArrayList<PersonModel>>() {
 		//			@Override public void onValueRetrieved (ArrayList<PersonModel> personModels) {
