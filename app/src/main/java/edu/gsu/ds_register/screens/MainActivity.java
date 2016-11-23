@@ -23,6 +23,28 @@ public class MainActivity extends AppCompatActivity {
 		personModel.saveToFirebase();
 
 
+		/*
+		Am I on the right track?
+
+		final EditText getFirstName = (EditText) findViewById(R.id.getFirstName);
+        final EditText getLastName = (EditText) findViewById(R.id.getLastName);
+        final EditText getEmail = (EditText) findViewById(R.id.getEmail);
+        final EditText getPassword = (EditText) findViewById(R.id.getPassword);
+        final EditText getPhoneNumber = (Button) findViewById(R.id.getPhoneNumber);
+        final EditText getPhoneNumber = (Button) findViewById(R.id.getPhoneNumber);
+        final EditText getDob = (Button) findViewById(R.id.getDob);
+
+        //if it's a button then  final Button getButton = (Button) findViewById(R.id.getButton);
+
+		then the button would have it's own button.setOnClickListener()
+		 */
+
+
+
+
+
+
+
 
 		// TODO: 11/18/16 : THIS CALL WON"T WORK YET... I WILL FIX SOON.
 		//		FirebaseUtils.addValueListener("persons", new SimpleValueEventListener<ArrayList<PersonModel>>() {
