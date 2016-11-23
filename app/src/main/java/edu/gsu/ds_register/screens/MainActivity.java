@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 		personModel.saveToFirebase();
 
 		final PersonModel personModelTest1 = new PersonModel("testing", "this", "IsThisJustMakingObjects@letSSee.com", "OhBoy", "6054756961", System.currentTimeMillis());
-		personModel.saveToFirebase();
+		personModelTest1.saveToFirebase();
 
 
 
