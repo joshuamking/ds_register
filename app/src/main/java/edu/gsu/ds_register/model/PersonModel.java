@@ -23,6 +23,9 @@ public class PersonModel extends FirebaseModel {
 		this.dob = dob;
 	}
 
+	public PersonModel () {
+	}
+
 	@Override public void saveToFirebase () {
 		FirebaseUtils.saveToFirebase(FIREBASE_NAME, this);
 	}
