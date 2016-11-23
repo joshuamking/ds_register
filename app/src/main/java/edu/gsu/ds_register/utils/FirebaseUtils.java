@@ -32,7 +32,7 @@ public class FirebaseUtils {
 	public static <T extends FirebaseModel> void saveToFirebase (String s, final T t, final CallbackWithType<T> callback) {
 		DatabaseReference announcementRef = get(s);
 		DatabaseReference announcementRefWithId;
-		if (t.getFirebaseKey() == null || t.getFirebaseKey().equals("")) {
+		if (StringUtils.isEmptyOrNull(t.getFirebaseKey())) {
 			announcementRefWithId = announcementRef.push();
 			t.setFirebaseKey(announcementRefWithId.getKey());
 		}
