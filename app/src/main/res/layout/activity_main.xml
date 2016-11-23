@@ -82,6 +82,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="6dp"
         android:id="@+id/signin_signup_button"
+        android:clickable="true"
         android:textSize="10pt"
         android:textColor="@android:color/holo_blue_dark" />
 
