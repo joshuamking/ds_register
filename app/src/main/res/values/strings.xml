@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">DS_Register</string>
+	<string name="app_name">appname</string>
 	<string name="title_activity_register">Register</string>
 	<string name="action_settings">Settings</string>
 </resources>
