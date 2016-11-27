@@ -4,28 +4,36 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
-        android:text="Registered Users"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/visualize_title_label"
-        android:layout_marginTop="20dp"
-        android:textSize="16pt" />
+        android:layout_height="137dp"
+        android:background="@drawable/registered_people">
 
-    <ListView
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:id="@+id/visualize_list_view" />
+        android:background="@color/colorPrimary">
 
-    <Button
-        android:text="Back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:textSize="12pt"
-        android:id="@+id/visualize_back_button" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:id="@+id/visualize_list_view" />
+
+        <Button
+            android:text="Back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textSize="12pt"
+            android:id="@+id/visualize_back_button"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

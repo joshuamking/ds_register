@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:columnCount="3"
     android:padding="15dp"
-    android:id="@+id/person_info_grid_layout">
+    android:id="@+id/person_info_grid_layout"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:text="Name"
