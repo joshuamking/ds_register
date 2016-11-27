@@ -9,14 +9,12 @@ public class PersonModel extends FirebaseModel {
 	public static final String FIREBASE_NAME = "persons";
 	private Long   dob;
 	private String email;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String password;
 	private String phoneNumber;
 
-	public PersonModel (String firstName, String lastName, String email, String password, String phoneNumber, Long dob) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public PersonModel (String name, String email, String password, String phoneNumber, Long dob) {
+		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
@@ -38,12 +36,24 @@ public class PersonModel extends FirebaseModel {
 		return email;
 	}
 
-	public String getFirstName () {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public String getLastName () {
-		return lastName;
+	public void setDob(Long dob) {
+		this.dob = dob;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getPassword () {
@@ -54,7 +64,7 @@ public class PersonModel extends FirebaseModel {
 		return phoneNumber;
 	}
 
-	public void setFirstName (String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 }
