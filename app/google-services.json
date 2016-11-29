@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1038917248918-qbic8li2i8gvtivdj1ms1crvqbtirvvo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gsu.ds_register",
+            "certificate_hash": "BEB8EE7DE79650E4671A2E22FFBD7588A1BF8DD3"
+          }
+        },
+        {
           "client_id": "1038917248918-ciidfcsgjpqboul4tomtqb60gf69ir0e.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038917248918-ciidfcsgjpqboul4tomtqb60gf69ir0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

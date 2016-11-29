@@ -3,6 +3,7 @@ package edu.gsu.ds_register.screens;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,16 +13,18 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import edu.gsu.ds_register.R;
+import edu.gsu.ds_register.model.PersonModel;
+import edu.gsu.ds_register.utils.StringUtils;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.Calendar;
-
-import edu.gsu.ds_register.R;
-import edu.gsu.ds_register.model.PersonModel;
-import edu.gsu.ds_register.utils.StringUtils;
 
 public class RegisterActivity extends AppCompatActivity {
 	private Calendar dateOfBirthCalendar;
@@ -37,7 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
 		final EditText phoneNumberEditText = (EditText) findViewById(R.id.phone_number);
 		final EditText nameEditText = (EditText) findViewById(R.id.person_name);
 		final EditText passwordEditText = (EditText) findViewById(R.id.person_password);
-
 
 		dateOfBirthCalendar = Calendar.getInstance();
 		dateOfBirthCalendar.add(Calendar.YEAR, -18);
@@ -68,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
-			@Override public void onClick (View view) {
+			@Override public void onClick (final View view) {
 				String dateOfBirthValue = String.valueOf(dateOfBirthEditText.getText());
 				String emailValue = String.valueOf(emailEditText.getText());
 				String phoneNumberValue = String.valueOf(phoneNumberEditText.getText());
@@ -80,9 +82,25 @@ public class RegisterActivity extends AppCompatActivity {
 					return;
 				}
 
-				PersonModel person = new PersonModel(nameValue, emailValue, passwordValue, phoneNumberValue, dateOfBirthCalendar.getTimeInMillis());
-                person.saveToFirebase();
-				finish();
+				final PersonModel person = new PersonModel(nameValue, emailValue, passwordValue, phoneNumberValue, dateOfBirthCalendar.getTimeInMillis());
+				FirebaseAuth.getInstance()
+							.createUserWithEmailAndPassword(emailValue, passwordValue)
+							.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+								@Override public void onComplete (@NonNull Task<AuthResult> task) {
+									if (task.isSuccessful()) {
+										person.saveToFirebase();
+										finish();
+									}
+									else {
+										Snackbar.make(view, "An error occurred while registering. If you have already registered, please sign in.", Snackbar.LENGTH_INDEFINITE)
+												.setAction("Sign In", new View.OnClickListener() {
+													@Override public void onClick (View v) {
+														finish();
+													}
+												});
+									}
+								}
+							});
 			}
 		});
 	}
