@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
 					return;
 				}
 
-				final PersonModel person = new PersonModel(nameValue, emailValue, passwordValue, phoneNumberValue, dateOfBirthCalendar.getTimeInMillis());
+				final PersonModel person = new PersonModel(nameValue, emailValue, phoneNumberValue, dateOfBirthCalendar.getTimeInMillis());
 				FirebaseAuth.getInstance()
 							.createUserWithEmailAndPassword(emailValue, passwordValue)
 							.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
