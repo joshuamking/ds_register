@@ -1,38 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:columnCount="3"
-    android:padding="15dp"
-    android:id="@+id/person_info_grid_layout"
-    android:background="@color/colorPrimary">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:padding="10dp">
+
+    <android.support.v7.widget.CardView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
 
     <TextView
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/person_info_name_label"
-        android:layout_columnWeight="1"
-        android:textAlignment="textStart"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="1" />
+            android:id="@+id/person_info_name_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:text="Name"
+            />
 
     <TextView
-        android:text="1239120232"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/person_info_phone_label"
-        android:layout_columnWeight="1"
-        android:textAlignment="center"
-        android:layout_weight="1" />
+            android:id="@+id/person_info_phone_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="@+id/person_info_name_label"
+            app:layout_constraintLeft_toRightOf="@+id/person_info_name_label"
+            app:layout_constraintTop_toTopOf="@+id/person_info_name_label"
+            android:text="1239120232"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
     <TextView
-        android:text="example@email.com"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/person_info_email_label"
-        android:layout_columnWeight="1"
-        android:textAlignment="textEnd"
-        android:layout_marginRight="10dp"
-        android:layout_weight="1" />
-</GridLayout>
+            android:id="@+id/person_info_email_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/person_info_name_label"
+            app:layout_constraintVertical_bias="0.0"
+            android:text="example@email.com"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

@@ -21,6 +21,11 @@
 				android:name=".screens.RegisterActivity"
 				android:theme="@style/AppTheme.NoActionBar">
 		</activity>
+		<activity
+				android:label="@string/title_activity_visualization"
+				android:name=".screens.VisualizationActivity"
+				android:theme="@style/AppTheme.NoActionBar">
+		</activity>
 	</application>
 
 </manifest>
