@@ -1,5 +1,4 @@
 <resources>
 	<string name="app_name">Events</string>
-	<string name="title_activity_register">Register</string>
 	<string name="action_settings">Settings</string>
 </resources>

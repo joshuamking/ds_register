@@ -35,6 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
+		setTitle("");
+
 		final EditText dateOfBirthEditText = (EditText) findViewById(R.id.date_of_birth);
 		final EditText emailEditText = (EditText) findViewById(R.id.person_email);
 		final EditText phoneNumberEditText = (EditText) findViewById(R.id.phone_number);
@@ -71,6 +73,10 @@ public class RegisterActivity extends AppCompatActivity {
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override public void onClick (final View view) {
+				Snackbar.make(view, "Registering, please wait...", Snackbar.LENGTH_INDEFINITE).show();
+						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
 				String dateOfBirthValue = String.valueOf(dateOfBirthEditText.getText());
 				String emailValue = String.valueOf(emailEditText.getText());
 				String phoneNumberValue = String.valueOf(phoneNumberEditText.getText());
@@ -78,17 +84,23 @@ public class RegisterActivity extends AppCompatActivity {
 				String passwordValue = String.valueOf(passwordEditText.getText());
 
 				if (StringUtils.isEmptyOrNull(dateOfBirthValue) || StringUtils.isEmptyOrNull(emailValue) || StringUtils.isEmptyOrNull(phoneNumberValue) || StringUtils.isEmptyOrNull(nameValue) || StringUtils.isEmptyOrNull(passwordValue)) {
-					Snackbar.make(view, "Please fill out all of the fields", Snackbar.LENGTH_LONG).show();
+					Snackbar.make(view, "Please fill out all of the fields", Snackbar.LENGTH_INDEFINITE).show();
+					return;
+				}
+
+				if (passwordValue.length() < 6) {
+					Snackbar.make(view, "Please provide a password longer than 6 characters", Snackbar.LENGTH_INDEFINITE).show();
 					return;
 				}
 
 				final PersonModel person = new PersonModel(nameValue, emailValue, phoneNumberValue, dateOfBirthCalendar.getTimeInMillis());
 				FirebaseAuth.getInstance()
 							.createUserWithEmailAndPassword(emailValue, passwordValue)
-							.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+							.addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
 								@Override public void onComplete (@NonNull Task<AuthResult> task) {
 									if (task.isSuccessful()) {
 										person.saveToFirebase();
+										FirebaseAuth.getInstance().signOut();
 										finish();
 									}
 									else {
@@ -97,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
 													@Override public void onClick (View v) {
 														finish();
 													}
-												});
+												}).show();
 									}
 								}
 							});

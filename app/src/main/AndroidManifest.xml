@@ -18,7 +18,6 @@
 			</intent-filter>
 		</activity>
 		<activity
-				android:label="@string/title_activity_register"
 				android:name=".screens.RegisterActivity"
 				android:theme="@style/AppTheme.NoActionBar">
 		</activity>
