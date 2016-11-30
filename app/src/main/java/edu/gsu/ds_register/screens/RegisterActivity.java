@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
@@ -77,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 						imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
 
+
 				String dateOfBirthValue = String.valueOf(dateOfBirthEditText.getText());
 				String emailValue = String.valueOf(emailEditText.getText());
 				String phoneNumberValue = String.valueOf(phoneNumberEditText.getText());
@@ -85,6 +87,12 @@ public class RegisterActivity extends AppCompatActivity {
 
 				if (StringUtils.isEmptyOrNull(dateOfBirthValue) || StringUtils.isEmptyOrNull(emailValue) || StringUtils.isEmptyOrNull(phoneNumberValue) || StringUtils.isEmptyOrNull(nameValue) || StringUtils.isEmptyOrNull(passwordValue)) {
 					Snackbar.make(view, "Please fill out all of the fields", Snackbar.LENGTH_INDEFINITE).show();
+					return;
+				}
+
+				if (!Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
+					Snackbar.make(view, "Please enter a valid email address", Snackbar.LENGTH_INDEFINITE).show();
+					emailEditText.requestFocus();
 					return;
 				}
 
