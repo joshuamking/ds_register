@@ -1,11 +1,12 @@
 package edu.gsu.ds_register.model;
 
+import android.support.annotation.NonNull;
 import edu.gsu.ds_register.utils.FirebaseUtils;
 
 /**
  * Created by Joshua King on 10/31/16.
  */
-public class PersonModel extends FirebaseModel {
+public class PersonModel extends FirebaseModel implements Comparable<PersonModel> {
 	public static final String FIREBASE_NAME = "persons";
 	private Long   dob;
 	private String email;
@@ -56,5 +57,9 @@ public class PersonModel extends FirebaseModel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override public int compareTo (@NonNull PersonModel otherPersonModel) {
+		return getDob().compareTo(otherPersonModel.getDob());
 	}
 }

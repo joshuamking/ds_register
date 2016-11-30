@@ -15,6 +15,7 @@ import edu.gsu.ds_register.model.PersonModel;
 import edu.gsu.ds_register.utils.FirebaseUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class VisualizationActivity extends AppCompatActivity {
 	@Override protected void onCreate (Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class VisualizationActivity extends AppCompatActivity {
 		FirebaseUtils.addValueListener("persons", new SimpleListValueListener<PersonModel>(PersonModel.class) {
 			@Override public void onValueRetrieved (ArrayList<PersonModel> personModels) {
 				persons.clear();
+				Collections.sort(personModels);
 				persons.addAll(personModels);
 				personModelArrayAdapter.notifyDataSetChanged();
 			}
