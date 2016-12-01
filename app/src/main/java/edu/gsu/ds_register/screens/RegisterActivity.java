@@ -75,8 +75,9 @@ public class RegisterActivity extends AppCompatActivity {
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override public void onClick (final View view) {
 				Snackbar.make(view, "Registering, please wait...", Snackbar.LENGTH_INDEFINITE).show();
-						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-						imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+				InputMethodManager imm          = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				View               currentFocus = getCurrentFocus();
+				if (currentFocus != null) { imm.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0); }
 
 
 				String dateOfBirthValue = String.valueOf(dateOfBirthEditText.getText());

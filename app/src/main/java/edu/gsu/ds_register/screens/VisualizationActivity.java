@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.google.firebase.auth.FirebaseAuth;
 import edu.gsu.ds_register.R;
 import edu.gsu.ds_register.listener.SimpleListValueListener;
 import edu.gsu.ds_register.model.PersonModel;
@@ -59,5 +59,21 @@ public class VisualizationActivity extends AppCompatActivity {
 				personModelArrayAdapter.notifyDataSetChanged();
 			}
 		});
+	}
+
+	@Override public boolean onCreateOptionsMenu (Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_visualization, menu);
+		return true;
+	}
+
+	@Override public boolean onOptionsItemSelected (MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_sign_out:
+				FirebaseAuth.getInstance().signOut();
+				finish();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 }
